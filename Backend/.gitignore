@@ -1,0 +1,36 @@
+# Folder Virtual Environment
+# Hiraukan semua folder venv
+venv/
+/venv/
+.venv/
+
+# File-file cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Direktori distribusi/package
+/dist/
+/build/
+*.egg-info/
+*.egg
+
+# File spesifik IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# File environment
+.env
+
+# File log
+*.log
+
+# File database lokal
+*.sqlite3
+*.db
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
