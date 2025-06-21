@@ -39,56 +39,67 @@ const DiagnosisResult = () => {
   };
 
   const getSolutionText = (penyakitName) => {
-    // Define solutions based on disease name
     const solutions = {
-      "Morning Sickness": [
-        "Makan dalam porsi kecil tapi sering (5-6 kali sehari)",
-        "Hindari makanan yang berminyak, pedas, atau berbau menyengat",
-        "Konsumsi jahe untuk mengurangi mual",
-        "Minum air putih yang cukup untuk mencegah dehidrasi",
-        "Istirahat yang cukup dan hindari stress",
+      "Hiperemesis Gravidarum": [
+        "Minum air sedikit-sedikit tapi sering untuk mencegah dehidrasi",
+        "Konsumsi makanan hambar seperti biskuit kering",
+        "Hindari makanan berlemak, pedas, atau berbau tajam",
+        "Istirahat cukup dan hindari aktivitas berat",
+        "Segera konsultasi ke dokter jika tidak bisa makan atau minum sama sekali",
       ],
-      "Amnesia Kehamilan": [
-        "Cukup tidur yang cukup dan berkualitas dapat meningkatkan daya ingat dan konsentrasi",
-        "Makan makanan sehat. Konsumsi makanan yang baik untuk otak, seperti ikan salmon, telur, tahu, teh hijau, blueberry, brokoli, dan kunyit",
-        "Membiasakan diri menaruh benda di tempat yang sama. Dengan begitu, Anda akan selalu ingat di mana benda tersebut berada",
-        "Membatasi pikiran terhadap hal-hal yang tidak penting. Siapkan ruang dalam memori untuk hal-hal yang bermanfaat dan digunakan dalam kehidupan sehari-hari",
-        "Mintalah dukungan kepada keluarga terdekat. Mintalah bantuan kepada keluarga terdekat agar Anda dapat melewati seluruh proses kehamilan dengan mudah",
+      "Abortus Imminens": [
+        "Istirahat total (bed rest)",
+        "Hindari aktivitas fisik berat dan hubungan seksual",
+        "Segera periksa ke dokter untuk evaluasi kondisi kehamilan",
+        "Kelola stres dan perbanyak dukungan emosional",
+      ],
+      "Kehamilan Ektopik": [
+        "Segera ke fasilitas kesehatan jika ada gejala mencurigakan",
+        "Penanganan medis cepat diperlukan (operasi/laparoskopi)",
+        "Lakukan pemeriksaan HCG dan USG transvaginal",
+      ],
+      Preeklampsia: [
+        "Rutin kontrol tekanan darah dan pemeriksaan urine",
+        "Istirahat cukup dan hindari stres",
+        "Batasi konsumsi garam dan makanan berlemak",
+        "Konsultasi rutin dengan dokter kandungan",
+      ],
+      "Anemia Kehamilan": [
+        "Konsumsi makanan kaya zat besi seperti hati ayam, daging merah, dan sayuran hijau",
+        "Minum suplemen zat besi sesuai anjuran dokter",
+        "Konsumsi vitamin C untuk membantu penyerapan zat besi",
+        "Hindari teh/kopi saat makan karena menghambat penyerapan zat besi",
       ],
       "Infeksi Saluran Kemih": [
         "Minum air putih yang banyak (minimal 8 gelas per hari)",
-        "Jangan menahan keinginan buang air kecil",
-        "Bersihkan area kemaluan dari depan ke belakang setelah buang air",
-        "Hindari penggunaan produk kewanitaan yang mengandung parfum",
-        "Konsultasi dengan dokter untuk pengobatan yang tepat",
+        "Jangan menahan buang air kecil",
+        "Bersihkan area kewanitaan dari depan ke belakang",
+        "Hindari sabun kewanitaan berpewangi",
+        "Segera konsultasi ke dokter untuk pengobatan yang aman",
       ],
-      "Flu Kehamilan": [
-        "Istirahat yang cukup dan minum banyak cairan",
-        "Konsumsi makanan bergizi untuk meningkatkan daya tahan tubuh",
-        "Hindari kontak dengan orang yang sedang sakit",
-        "Cuci tangan secara teratur",
-        "Konsultasi dengan dokter sebelum mengonsumsi obat apapun",
+      "Plasenta Previa": [
+        "Istirahat total jika mengalami perdarahan",
+        "Hindari aktivitas fisik dan hubungan seksual",
+        "Lakukan USG secara berkala untuk memantau posisi plasenta",
+        "Konsultasikan dengan dokter mengenai persiapan persalinan",
       ],
-      "Migrain Kehamilan": [
-        "Istirahat di ruangan yang gelap dan tenang",
-        "Kompres dingin pada dahi atau belakang leher",
-        "Kelola stress dengan teknik relaksasi",
-        "Hindari pemicu migrain seperti makanan tertentu atau kurang tidur",
-        "Konsultasi dengan dokter untuk penanganan yang aman selama kehamilan",
+      "Mola Hidatidosa": [
+        "Segera lakukan pemeriksaan USG jika dicurigai mola",
+        "Lakukan tindakan kuretase oleh tenaga medis",
+        "Lakukan pemantauan kadar HCG secara rutin setelah tindakan",
+        "Tunda kehamilan berikutnya hingga dokter menyatakan aman",
       ],
-      "Gangguan Pencernaan": [
-        "Makan dalam porsi kecil tapi sering",
-        "Hindari makanan pedas, asam, dan berminyak",
-        "Konsumsi makanan tinggi serat seperti buah dan sayuran",
-        "Minum air putih yang cukup",
-        "Hindari berbaring langsung setelah makan",
+      "Diabetes Melitus Gestasional": [
+        "Kontrol kadar gula darah secara rutin",
+        "Atur pola makan sehat dan rendah gula",
+        "Lakukan olahraga ringan seperti jalan kaki secara teratur",
+        "Konsultasi dengan dokter atau ahli gizi mengenai menu harian",
       ],
-      "Insomnia Kehamilan": [
-        "Buat rutinitas tidur yang teratur",
-        "Hindari kafein dan makanan berat sebelum tidur",
-        "Ciptakan lingkungan tidur yang nyaman",
-        "Lakukan teknik relaksasi sebelum tidur",
-        "Konsultasi dengan dokter jika gangguan tidur berlanjut",
+      "Abortus Inkomplit": [
+        "Segera periksa ke dokter jika terjadi perdarahan hebat",
+        "Dilakukan kuretase atau evakuasi sisa jaringan dalam rahim",
+        "Minum antibiotik jika diresepkan dokter untuk mencegah infeksi",
+        "Istirahat total dan pantau tanda-tanda syok",
       ],
     };
 
@@ -98,7 +109,7 @@ const DiagnosisResult = () => {
         "Jaga pola makan yang sehat dan bergizi",
         "Istirahat yang cukup",
         "Minum air putih yang cukup",
-        "Hindari stress berlebihan",
+        "Hindari stres berlebihan",
       ]
     );
   };

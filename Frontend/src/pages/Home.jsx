@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <div className='container py-5'>
-      <div className='row align-items-'>
-        <div className='col-md-6 mb-4 mb-md-0'>
+      <div className='row align-items-center'>
+        <div className='col-md-6 mb-4 mb-md-0' data-aos='fade-right'>
           <h1 className='fw-bold'>
             Sumber Informasi <br />
             Terpercaya Untuk <br />
@@ -28,7 +34,7 @@ export default function Home() {
             Periksa Sekarang
           </button>
         </div>
-        <div className='col-md-6 text-center'>
+        <div className='col-md-6 text-center' data-aos='fade-left'>
           <img
             src='/images/home.png'
             alt='Ibu Hamil'
@@ -36,11 +42,13 @@ export default function Home() {
             style={{ maxHeight: "600px" }}
           />
         </div>
+      </div>
 
-        <section className='diagnosa-step mb-5'>
-          <h2 className='text-center'>Bagaimana cara diagnosa</h2>
-          <div className='row mt-5'>
-            <div className='col-md-4'>
+      <section className='diagnosa-step mb-5 mt-5' data-aos='fade-up'>
+        <h2 className='text-center'>Bagaimana cara diagnosa</h2>
+        <div className='row mt-5'>
+          <div className='col-md-4' data-aos='zoom-in'>
+            <div className='card p-3 diagnosa-card'>
               <div className='card p-3'>
                 <h4 style={{ display: "flex", alignItems: "center" }}>
                   <img
@@ -60,8 +68,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
 
-            <div className='col-md-4'>
+          <div className='col-md-4' data-aos='zoom-in' data-aos-delay='100'>
+            <div className='card p-3 diagnosa-card'>
               <div className='card p-3'>
                 <h4 style={{ display: "flex", alignItems: "center" }}>
                   <img
@@ -81,8 +91,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
 
-            <div className='col-md-4'>
+          <div className='col-md-4' data-aos='zoom-in' data-aos-delay='200'>
+            <div className='card p-3 diagnosa-card'>
               <div className='card p-3'>
                 <h4 style={{ display: "flex", alignItems: "center" }}>
                   <img
@@ -103,42 +115,43 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div className='mb-7'>
-          <div className='row align-item-center'>
-            <div className='col-md-6 text-start'>
-              <h2 className='fw-bold mb-4'>Mom's Care</h2>
-              <p className='mb-5 text-muted'>
-                Mom's Care adalah platform digital yang dirancang khusus untuk
-                membantu ibu hamil dalam menjaga kesehatan mereka. Dengan
-                menggunakan teknologi terkini, Bunda Hati memberikan informasi
-                yang akurat dan terpercaya.
-              </p>
-              <ul className='list-unstyled'>
-                <li className='mb-3'>
-                  ✅ <strong>Analisis Faktor Resiko</strong>
-                </li>
-                <li className='mb-3'>
-                  ✅ <strong>Algoritma AI yang Bagus</strong>
-                </li>
-                <li className='mb-3'>
-                  ✅ <strong>Algoritma AI yang Bagusar</strong>
-                </li>
-              </ul>
-            </div>
+      <div className='mb-7 mt-5'>
+        <div className='row align-items-center'>
+          <div className='col-md-6 text-start' data-aos='fade-up-right'>
+            <h2 className='fw-bold mb-4'>Mom's Care</h2>
+            <p className='mb-5 text-muted'>
+              Mom's Care adalah platform digital yang dirancang khusus untuk
+              membantu ibu hamil dalam menjaga kesehatan mereka. Dengan
+              menggunakan teknologi terkini, Bunda Hati memberikan informasi
+              yang akurat dan terpercaya.
+            </p>
+            <ul className='list-unstyled'>
+              <li className='mb-3'>
+                ✅ <strong>Analisis Faktor Resiko</strong>
+              </li>
+              <li className='mb-3'>
+                ✅ <strong>Algoritma AI yang Bagus</strong>
+              </li>
+              <li className='mb-3'>
+                ✅ <strong>Algoritma AI yang Bagusar</strong>
+              </li>
+            </ul>
+          </div>
 
-            <div className='col-md-6 text-center'>
-              <img
-                src='/images/doctor.png'
-                alt='dokter'
-                className='img-fluid'
-                style={{ maxHeight: "400px" }}
-              />
-            </div>
+          <div className='col-md-6 text-center' data-aos='fade-up-left'>
+            <img
+              src='/images/doctor.png'
+              alt='dokter'
+              className='img-fluid'
+              style={{ maxHeight: "400px" }}
+            />
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );

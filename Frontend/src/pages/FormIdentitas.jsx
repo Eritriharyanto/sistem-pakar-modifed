@@ -25,112 +25,120 @@ function FormIdentitas() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  let newErrors = {};
-  Object.entries(formData).forEach(([key, value]) => {
-    if (!value.trim()) {
-      newErrors[key] = "Mohon diisi";
+    let newErrors = {};
+    Object.entries(formData).forEach(([key, value]) => {
+      if (!value.trim()) {
+        newErrors[key] = "Mohon diisi";
+      }
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
     }
-  });
 
-  if (Object.keys(newErrors).length > 0) {
-    setErrors(newErrors);
-    return;
-  }
+    try {
+      setIsLoading(true);
+      const res = await axios.post(
+        "http://localhost:5000/api/pengguna",
+        formData
+      );
+      console.log("Berhasil kirim identitas:", res.data);
 
-  try {
-    const res = await axios.post("http://localhost:5000/api/pengguna", formData);
-    console.log("Berhasil kirim identitas:", res.data);
+      localStorage.setItem("identitas_user", JSON.stringify(formData));
+      localStorage.setItem("user_id", res.data.user_id);
 
-    localStorage.setItem("identitas_user", JSON.stringify(formData));
-    localStorage.setItem("user_id", res.data.user_id); // ✅ FIXED: gunakan res.data
-
-    navigate("/Trimester");
-  } catch (err) {
-    console.error("Gagal mengirim data identitas:", err);
-  }
-};
+      navigate("/Trimester");
+    } catch (err) {
+      console.error("Gagal mengirim data identitas:", err);
+      setErrors({
+        submit: "Terjadi kesalahan saat mengirim data. Silakan coba lagi.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div>
+      {/* Header Section */}
       <div style={{ backgroundColor: "#fef4e9", padding: "2rem" }}>
-        <h2 className='fw-bold mb-4'>Diagnosis Penyakit</h2>
+        <h2 className='fw-bold mb-3'>Diagnosis Penyakit</h2>
         <p className='text-muted' style={{ maxWidth: "600px" }}>
-          Sebelum diagnosa penyakit ibu hamil, mohon isi form identitas terlebih
-          dahulu untuk membantu kami memberikan diagnosis yang lebih akurat dan
-          spesifik. Kami akan menjaga semua kerahasiaan informasi yang anda
-          berikan dan hanya akan kami gunakan untuk kepentingan diagnosis.
+          Sebelum melakukan diagnosis penyakit pada ibu hamil, mohon isi form
+          identitas terlebih dahulu. Data ini akan membantu sistem memberikan
+          hasil diagnosis yang lebih akurat dan tetap kami jaga kerahasiaannya.
         </p>
       </div>
 
-      <div className='p-4'>
-        <h2 className='fw-bold mb-3'>Form Identitas</h2>
+      {/* Form Section */}
+      <div className='container py-5'>
+        <h3 className='fw-bold mb-4'>Form Identitas</h3>
 
         {errors.submit && (
-          <div className='alert alert-danger' role='alert'>
-            {errors.submit}
-          </div>
+          <div className='alert alert-danger'>{errors.submit}</div>
         )}
 
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>
             <input
               type='text'
-              className='form-control rounded-pill shadow-sm'
               name='nama'
               placeholder='Nama Lengkap'
+              className='form-control rounded-pill shadow-sm'
               value={formData.nama}
               onChange={handleChange}
               disabled={isLoading}
             />
             {errors.nama && (
-              <small style={{ color: "red" }}>{errors.nama}</small>
+              <small className='text-danger'>{errors.nama}</small>
             )}
           </div>
 
           <div className='mb-3'>
             <input
               type='text'
-              className='form-control rounded-pill shadow-sm'
               name='no_hp'
-              placeholder='no_hp'
+              placeholder='No. HP'
+              className='form-control rounded-pill shadow-sm'
               value={formData.no_hp}
               onChange={handleChange}
               disabled={isLoading}
             />
             {errors.no_hp && (
-              <small style={{ color: "red" }}>{errors.no_hp}</small>
+              <small className='text-danger'>{errors.no_hp}</small>
             )}
           </div>
 
           <div className='mb-3'>
             <input
               type='text'
-              className='form-control rounded-pill shadow-sm'
               name='pekerjaan'
               placeholder='Pekerjaan'
+              className='form-control rounded-pill shadow-sm'
               value={formData.pekerjaan}
               onChange={handleChange}
               disabled={isLoading}
             />
             {errors.pekerjaan && (
-              <small style={{ color: "red" }}>{errors.pekerjaan}</small>
+              <small className='text-danger'>{errors.pekerjaan}</small>
             )}
           </div>
 
           <div className='mb-3'>
             <input
               type='text'
-              className='form-control rounded-pill shadow-sm'
               name='alamat'
               placeholder='Alamat'
+              className='form-control rounded-pill shadow-sm'
               value={formData.alamat}
               onChange={handleChange}
               disabled={isLoading}
             />
             {errors.alamat && (
-              <small style={{ color: "red" }}>{errors.alamat}</small>
+              <small className='text-danger'>{errors.alamat}</small>
             )}
           </div>
 
@@ -143,6 +151,7 @@ function FormIdentitas() {
           </button>
         </form>
       </div>
+
       <Footer />
     </div>
   );

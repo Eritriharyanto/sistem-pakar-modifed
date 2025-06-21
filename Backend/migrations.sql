@@ -220,3 +220,11 @@ INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
 (3, 8, 47),
 (3, 8, 48),
 (3, 8, 54);
+
+-- Abortus Inkomplit (T3)
+INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
+(3, 10, 11),  -- Perdarahan > 22 minggu
+(3, 10, 64),  -- Jaringan tidak keluar semua
+(3, 10, 65),  -- Kontraksi berkurang
+(3, 10, 24),  -- Nyeri perut bawah
+(3, 10, 67);  -- Gejala anemia (pusing, kabur, pingsan)

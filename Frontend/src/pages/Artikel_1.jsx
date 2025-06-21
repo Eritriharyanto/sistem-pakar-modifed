@@ -1,130 +1,134 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Artikel_1 = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <div className=''>
-      <h4 className='fw-bold mb-4 text-center'>
+    <div className='container py-5'>
+      <h2 className='fw-bold mb-4 text-center' data-aos='fade-down'>
         Tanda-Tanda Hamil Anak Kembar dan Komplikasi yang Bisa Terjadi
-      </h4>
+      </h2>
+
       <img
         src='/images/baby.png'
         alt='baby'
-        className='img-fluid rounded mb-4'
-        style={{ Width: "100%", objectFit: "cover" }}
+        className='img-fluid rounded mb-4 d-block mx-auto'
+        style={{ maxHeight: "300px", objectFit: "cover" }}
+        data-aos='zoom-in'
       />
-      <p>
+
+      <p data-aos='fade-up'>
         Hamil anak kembar sebenarnya dapat diketahui secara pasti melalui
         pemeriksaan USG. Meski demikian, ada beberapa tanda yang bisa dilihat
         untuk memperkirakan apakah Anda sedang mengalami kehamilan kembar.
         Selain itu, penting juga bagi Anda untuk mewaspadai komplikasi yang bisa
         terjadi saat hamil kembar.
       </p>
-      <h6 className='fw-bold mt-4'>Tanda Hamil Anak Kembar</h6>
-      <p>
-        Hamil anak kembar lebih umum terjadi pada wanita berusia 30-40 tahun.
+
+      <h4 className='fw-bold mt-5' data-aos='fade-right'>
+        Tanda Hamil Anak Kembar
+      </h4>
+      <p data-aos='fade-up'>
+        Hamil anak kembar lebih umum terjadi pada wanita berusia 30–40 tahun.
         Alasannya adalah karena pada rentang usia ini, wanita berpeluang untuk
         melepas lebih dari 1 sel telur ketika ovulasi.
       </p>
-      <p>
-        Meski tidak selalu akurat, ada beberapa hal yang menjadi tanda hamil
-        anak kembar. Dibanding wanita yang sedang hamil tunggal, wanita yang
-        hamil kembar biasanya akan:
+      <p data-aos='fade-up'>
+        Dibanding wanita yang hamil tunggal, wanita yang hamil kembar biasanya
+        akan:
       </p>
-      <ul>
-        <li>
-          Memiliki ukuran perut yang lebih besar. Ukuran perut ini sudah dapat
-          terlihat sejak awal kehamilan
-        </li>
+
+      <ul data-aos='fade-up'>
+        <li>Memiliki ukuran perut lebih besar sejak awal kehamilan</li>
         <li>Mengalami mual dan muntah (morning sickness) yang lebih parah</li>
         <li>Mengalami kenaikan berat badan yang lebih banyak</li>
         <li>Merasa lebih lelah</li>
-        <li>
-          Merasakan sakit punggung yang muncul lebih awal dan rasanya lebih
-          menyakitkan
-        </li>
-        <li>
-          Merasakan gerakan janin secara lebih dini, yakni pada trimester kedua.
-        </li>
+        <li>Mengalami sakit punggung lebih awal dan intens</li>
+        <li>Merasa gerakan janin lebih dini, biasanya trimester kedua</li>
       </ul>
-      <p>
-        Pada pemeriksaan laboratorium, kadar hormon hCG wanita yang hamil anak
-        kembar akan lebih tinggi daripada yang sedang hamil tunggal. Hormon hCG
-        adalah hormon yang diproduksi selama kehamilan. Meski begitu,
-        peningkatan hormon hCG ini tidak mutlak menandakan kehamilan kembar.
+
+      <p data-aos='fade-up'>
+        Kadar hormon hCG juga lebih tinggi pada kehamilan kembar. Namun, hanya
+        USG yang dapat memastikan, terutama saat usia kehamilan 10–14 minggu.
+        Beberapa kondisi seperti superfetasi dapat menyerupai kehamilan kembar.
       </p>
-      <p>
-        Hal-hal di atas memang bisa menjadi tanda hamil anak kembar. Namun,
-        untuk jawaban yang lebih pasti, Anda tetap perlu melakukan USG saat usia
-        kehamilan menginjak 10–14 minggu. Karena ada kondisi dimana kehamilan
-        superfetasi menyerupai kehamilan kembar.
-      </p>
-      <h6 className='fw-bold mt-4'>
+
+      <h4 className='fw-bold mt-5' data-aos='fade-right'>
         Komplikasi yang Mengintai Hamil Anak Kembar
-      </h6>
-      <p>
-        Sebagian kehamilan memang bisa lebih berisiko dibandingkan kehamilan
-        lain. Salah satu di antaranya adalah hamil anak kembar. Beberapa risiko
-        dan komplikasi yang sering terjadi pada kehamilan kembar adalah:
+      </h4>
+      <p data-aos='fade-up'>
+        Hamil anak kembar cenderung memiliki risiko komplikasi yang lebih
+        tinggi, antara lain:
       </p>
-      <h6 className='fw-bold'>1. Preeklamsia</h6>
-      <p>
-        Wanita yang hamil anakthyehar berisiko lebih tinggi untuk mengalami
-        preeklamsia, Preeklampsia adalah komplikasi kehamilan yang ditandai
-        dengan tekanan darah tinggi dan adanya protein yang tinggi di dalam
-        urine setelah usia kehamilan lebih dari 20 minggu. Preeklampsia ditandai
-        dengan beberapa gejala, salah satunya adalah pembengkakan pada beberapa
-        anggota tubuh, seperti wajah, tangan, kaki, dan mata. Selain itu, sakit
-        kepala berat, gangguan penglihatan, nyeri perut bagian atas, mual,
-        muntah, dan sesak napas juga bisa muncul.
+
+      <h5 className='fw-bold' data-aos='fade-right'>
+        1. Preeklamsia
+      </h5>
+      <p data-aos='fade-up'>
+        Komplikasi yang ditandai dengan tekanan darah tinggi dan protein dalam
+        urin setelah 20 minggu kehamilan. Gejalanya meliputi pembengkakan, sakit
+        kepala berat, gangguan penglihatan, nyeri perut, mual, dan sesak napas.
       </p>
-      <h6 className='fw-bold'>2. Diabetes gestasional</h6>
-      <p>
-        Diabetes gestasional adalah bentuk diabetes pada masa kehamilan akibat
-        tubuh tidak mampu menghasilkan jumlah insulin yang cukup untuk mengatur
-        kadar gula tubuh. Pada kehamilan kembar, risiko untuk terjadinya kondisi
-        ini adalah 4-10%. Diabetes gestasional ditandai dengan sering haus,
-        sering buang air kecil, kelelahan, mual, penglihatan menjadi kabur,
-        serta sering mengalami infeksi vagina dan kandung kemih. Pada
-        pemeriksaan lab, bisa didapatkan gula di dalam urine.
+
+      <h5 className='fw-bold' data-aos='fade-right'>
+        2. Diabetes Gestasional
+      </h5>
+      <p data-aos='fade-up'>
+        Diabetes pada masa kehamilan karena kurangnya insulin. Gejala meliputi
+        haus, buang air kecil berlebihan, kelelahan, dan infeksi kandung kemih.
+        Risiko pada kehamilan kembar bisa mencapai 4–10%.
       </p>
-      <h6 className='fw-bold'>3. Anemia</h6>
-      <p>
-        Semua calon ibu bisa mengalami anemia yang ditandai dengan lemah dan
-        lesu. Hal ini karena saat hami, wanita akan membutuhkan lebih banyak zat
-        besi. Saat hamil anak kembar, tentunya jumlah zat besi yang dibutuhkan
-        akan lebih banyak sehingga risiko terjadinya anemia semakin tinggi.
+
+      <h5 className='fw-bold' data-aos='fade-right'>
+        3. Anemia
+      </h5>
+      <p data-aos='fade-up'>
+        Kebutuhan zat besi lebih tinggi saat hamil kembar, sehingga risiko
+        anemia meningkat. Gejalanya meliputi lelah, pucat, dan mudah lemas.
       </p>
-      <h6 className='fw-bold'>4. Twin to Twin Transfusion Syndrome (TTTS)</h6>
-      <p>
-        TTTS adalah kelainan yang menimpa bayi kembar identik, karena bayi
-        kembar identik mendapatkan suplai darah dari plasenta yang sama. TTTS
-        menyebabkan salah satu bayi mendapat pasokan aliran darah yang berlebih,
-        sementara bayi yang lain kekurangan. Kondisi ini membuat bayi yang
-        mendapat aliran darah berlebih berisiko untuk menderita gangguan
-        jantung. Sementara bayi yang kekurangan aliran darah berisiko untuk
-        mengalami anemia dan berat badan lahir rendah.
+
+      <h5 className='fw-bold' data-aos='fade-right'>
+        4. Twin to Twin Transfusion Syndrome (TTTS)
+      </h5>
+      <p data-aos='fade-up'>
+        TTTS terjadi pada bayi kembar identik yang berbagi plasenta. Satu bayi
+        mendapat darah lebih banyak, sementara yang lain kekurangan. Hal ini
+        bisa menyebabkan gangguan jantung atau anemia.
       </p>
-      <p>
-        Penting bagi Anda untuk segera mengetahui apakah Anda hamil anak kembar
-        atau hamil tunggal. Semua kehamilan memang harus dijaga dengan baik,
-        namun ibu yang hamil anak kembar akan membutuhkan perhatian ekstra.
+
+      <p data-aos='fade-up'>
+        Deteksi dini sangat penting. Kehamilan kembar membutuhkan perhatian
+        lebih, termasuk pemenuhan nutrisi, cairan yang cukup, dan kontrol rutin
+        ke dokter kandungan.
       </p>
-      <p>
-        Pada kasus tertentu, kehamilan kembar juga bisa berisiko menyebabkan
-        gangguan otot perut pada ibu hamil atau diactesis recti.
+
+      <p data-aos='fade-up'>
+        Pada beberapa kasus, kehamilan kembar juga dapat menyebabkan gangguan
+        otot perut (diastasis recti).
       </p>
-      <p>
-        Pastikan Anda mendapatkan nutrisi dan cairan yang cukup ketika hamil
-        anak kembar. Rutinlah berkonsultasi ke dokter kandungan sesuai jadwal
-        dan melakukan pemeriksaan kehamilan untuk memastikan bahwa kondisi Anda
-        dan janin sehat.
+
+      <p data-aos='fade-up'>
+        Pastikan untuk selalu memantau kondisi tubuh dan janin, serta
+        konsultasikan secara rutin kepada dokter kehamilan untuk hasil terbaik.
       </p>
-      <h7 className='text-muted mt-4'>Terakhir diperbarui: 30 Oktober 2024</h7>
-      <h6 className='text-muted mt-1'>Ditinjau oleh: dr. Kevin Adrian</h6>
-      <a href='https://www.alodokter.com/tanda-tanda-hamil-anak-kembar-dan-komplikasi-yang-bisa-terjadi'>
-        Sumber lainnya
-      </a>
+
+      <div className='text-muted mt-5' data-aos='fade-up'>
+        <p>Terakhir diperbarui: 30 Oktober 2024</p>
+        <p>Ditinjau oleh: dr. Kevin Adrian</p>
+        <a
+          href='https://www.alodokter.com/tanda-tanda-hamil-anak-kembar-dan-komplikasi-yang-bisa-terjadi'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Sumber lainnya
+        </a>
+      </div>
+
       <Footer />
     </div>
   );

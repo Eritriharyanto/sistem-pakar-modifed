@@ -1,13 +1,22 @@
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Artikel = () => {
-  return (
-    <div className=''>
-      <h2 className='fw-bold mb-4'>Arikel</h2>
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
-      {/*artikel 1*/}
-      <div className='row mb-4 align-items-start'>
+  return (
+    <div className='container py-5'>
+      <h2 className='fw-bold mb-4' data-aos='fade-down'>
+        Artikel
+      </h2>
+
+      {/* Artikel 1 */}
+      <div className='row mb-4 align-items-start' data-aos='fade-up'>
         <div className='col-md-3'>
           <img
             src='/images/baby.png'
@@ -33,8 +42,12 @@ const Artikel = () => {
         </div>
       </div>
 
-      {/*artikel 2*/}
-      <div className='row mb-4 align-items-start'>
+      {/* Artikel 2 */}
+      <div
+        className='row mb-4 align-items-start'
+        data-aos='fade-up'
+        data-aos-delay='100'
+      >
         <div className='col-md-3'>
           <img
             src='/images/makanan.png'
@@ -60,6 +73,7 @@ const Artikel = () => {
           </Link>
         </div>
       </div>
+
       <Footer />
     </div>
   );
