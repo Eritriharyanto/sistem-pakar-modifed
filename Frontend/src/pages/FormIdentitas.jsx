@@ -147,7 +147,7 @@ function FormIdentitas() {
             className='btn btn-danger px-4 py-2 rounded-pill'
             disabled={isLoading}
           >
-            {isLoading ? "Menyimpan..." : "Selanjutnya"}
+            {isLoading ? "Menyimpan....." : "Selanjutnya"}
           </button>
         </form>
       </div>
