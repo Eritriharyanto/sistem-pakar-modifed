@@ -1,7 +1,7 @@
 CREATE TABLE gejala (
   id INT PRIMARY KEY AUTO_INCREMENT,
   kode_gejala VARCHAR(10) NOT NULL UNIQUE,
-  nama_gejala VARCHAR(100) NOT NULL
+  nama_gejala VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE penyakit (
@@ -47,8 +47,10 @@ CREATE TABLE aturan (
   id INT PRIMARY KEY AUTO_INCREMENT,
   id_penyakit INT NOT NULL,
   id_gejala INT NOT NULL,
+  id_trimester INT NOT NULL,
+  FOREIGN KEY (id_trimester) REFERENCES trimester(id),
   FOREIGN KEY (id_penyakit) REFERENCES penyakit(id),
-  FOREIGN KEY (id_gejala) REFERENCES gejala(id)
+  FOREIGN KEY (id_gejala) REFERENCES gejala(id)
 );
 
 
@@ -130,16 +132,16 @@ INSERT INTO gejala (id, kode_gejala, nama_gejala) VALUES
 
 -- Insert penyakit data
 INSERT INTO penyakit (kode, nama_penyakit, deskripsi) VALUES
-('P01', 'Anemia Kehamilan', 'cccccc'),
-('P02', 'Preeklampsia','cccccc'),
-('P03', 'Plasenta Previa','cccccc'),
-('P04', 'Hiperemesis Gravidarum','cccccc'),
-('P05', 'Kehamilan Ektopik','cccccc'),
-('P06', 'Mola Hidatidosa','cccccc'),
-('P07', 'Infeksi Saluran Kemih','cccccc'),
-('P08', 'Diabetes Melitus Gestasional','cccccc'),
-('P09', 'Abortus Imminens','cccccc'),
-('P10', 'Abortus Inkomplit','cccccc');
+('P01', 'Anemia Kehamilan', 'Anemia kehamilan adalah kondisi saat kadar hemoglobin dalam darah ibu hamil berada di bawah normal akibat kekurangan zat besi, folat, atau vitamin B12. Gejalanya termasuk lemas, pucat, sesak napas, dan detak jantung cepat. Jika tidak ditangani, dapat menyebabkan komplikasi seperti persalinan prematur atau berat bayi lahir rendah.'),
+('P02', 'Preeklampsia','Preeklampsia adalah komplikasi kehamilan yang ditandai oleh tekanan darah tinggi dan adanya protein dalam urin setelah usia kehamilan 20 minggu. Gejalanya bisa meliputi sakit kepala, gangguan penglihatan, pembengkakan, dan nyeri perut bagian atas. Jika tidak segera ditangani, dapat berkembang menjadi eklampsia yang mengancam nyawa.'),
+('P03', 'Plasenta Previa','Plasenta previa adalah kondisi ketika plasenta menutupi sebagian atau seluruh jalan lahir (serviks). Hal ini bisa menyebabkan perdarahan hebat selama kehamilan atau saat persalinan. Biasanya terdeteksi melalui USG, dan penanganannya bisa melibatkan persalinan sesar untuk menghindari risiko bagi ibu dan bayi.'),
+('P04', 'Hiperemesis Gravidarum','Hiperemesis gravidarum adalah kondisi mual dan muntah berlebihan pada kehamilan yang menyebabkan dehidrasi, ketidakseimbangan elektrolit, dan penurunan berat badan. Berbeda dari morning sickness biasa, kondisi ini memerlukan perawatan medis seperti cairan infus dan obat antiemetik.'),
+('P05', 'Kehamilan Ektopik','Kehamilan ektopik terjadi ketika sel telur yang dibuahi tertanam di luar rahim, biasanya di tuba falopi. Gejalanya termasuk nyeri perut tajam, perdarahan vagina, dan pusing berat. Kehamilan ini tidak dapat dilanjutkan dan perlu segera ditangani untuk mencegah ruptur dan perdarahan internal yang fatal.'),
+('P06', 'Mola Hidatidosa','Mola hidatidosa atau hamil anggur adalah kehamilan abnormal akibat pertumbuhan jaringan plasenta yang tidak normal, membentuk gelembung-gelembung seperti anggur. Ditandai dengan perdarahan, pembesaran rahim tidak sesuai usia kehamilan, dan kadar hCG yang sangat tinggi. Penanganannya termasuk kuretase dan pemantauan kadar hCG.'),
+('P07', 'Infeksi Saluran Kemih','ISK pada ibu hamil adalah infeksi yang terjadi di saluran kemih, seperti kandung kemih atau ginjal. Gejalanya termasuk nyeri saat buang air kecil, sering ingin buang air kecil, dan urin keruh atau berdarah. Jika tidak diobati, dapat memicu persalinan prematur atau infeksi ginjal.'),
+('P08', 'Diabetes Melitus Gestasional','Diabetes melitus gestasional adalah kondisi meningkatnya kadar gula darah yang hanya terjadi selama kehamilan. Umumnya tidak menunjukkan gejala, tapi dapat berdampak pada bayi seperti makrosomia (bayi besar), persalinan sesar, dan risiko diabetes tipe 2 di masa depan. Penanganannya termasuk diet, olahraga, dan kadang insulin.'),
+('P09', 'Abortus Imminens','Abortus imminens adalah ancaman keguguran yang ditandai dengan perdarahan ringan, kram perut, tetapi serviks masih tertutup dan janin masih hidup. Dengan istirahat dan pemantauan medis, kondisi ini masih bisa berlanjut menjadi kehamilan normal jika ditangani segera.'),
+('P10', 'Abortus Inkomplit','Abortus inkomplit adalah kondisi keguguran di mana sebagian jaringan kehamilan masih tertinggal di dalam rahim. Gejalanya meliputi perdarahan terus-menerus dan nyeri perut. Biasanya memerlukan tindakan kuretase untuk membersihkan rahim secara menyeluruh.');
 
 
 -- Insert aturan (rules) for forward chaining
