@@ -150,7 +150,7 @@ def forward_chaining(gejala_terpilih, trimester_id):
 ```
 
 ## Endpoint Gejala Per Trimester
-```bash
+``` python
 @app.route('/api/gejala/trimester/<int:trimester_id>', methods=['GET'])
 def get_gejala_by_trimester(trimester_id):
     try:
@@ -179,7 +179,7 @@ def get_gejala_by_trimester(trimester_id):
 ```
 
 ## Gabungan Gejala dan Penyakit per Trimester
-```bash
+``` python
 @app.route('/api/penyakit-gejala/trimester/<int:trimester_id>', methods=['GET'])
 def get_penyakit_dan_gejala_by_trimester(trimester_id):
     try:
@@ -234,7 +234,7 @@ def get_penyakit_dan_gejala_by_trimester(trimester_id):
 ```
 
 ## Manambakan Kode di Diagnosa_1.jsx Agar bisa Mengambil Gejala dan Penyakit per Trimester
-```bash
+```jsx
 const fetchGejalaData = async () => {
   try {
     setIsLoading(true);
