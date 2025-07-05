@@ -252,7 +252,7 @@ const fetchGejalaData = async () => {
   }
 };
 ```
-## DataBase
+## 🗄️ DataBase
 - buat database terbelih dahulu lalu buat table ke dalam databasenya.
 ```sql
 CREATE TABLE gejala (
@@ -310,7 +310,7 @@ CREATE TABLE aturan (
   FOREIGN KEY (id_gejala) REFERENCES gejala(id)
 );
 ```
-## Insert trimester data
+## 📅 Insert trimester data
 ```sql
 
 INSERT INTO trimester (nama_trimester) VALUES 
@@ -318,7 +318,7 @@ INSERT INTO trimester (nama_trimester) VALUES
 ('Trimester 2'),
 ('Trimester 3');
 ```
-## Insert gejala data
+## 📋 Insert gejala data
 ```sql
 INSERT INTO gejala (id, kode_gejala, nama_gejala) VALUES
 (1, 'G01', 'Usia kehamilan kurang dari 16 minggu'),
@@ -390,7 +390,7 @@ INSERT INTO gejala (id, kode_gejala, nama_gejala) VALUES
 (67, 'G67', 'Pada kondisi perdarahan hebat dapat menimbulkan gejala anemia (pusing, pandangan mata kabur, pingsan)');
 ```
 
-## Insert penyakit data
+## 🦠 Insert penyakit data
 ```sql
 NSERT INTO penyakit (kode, nama_penyakit, deskripsi) VALUES
 ('P01', 'Anemia Kehamilan', 'Anemia kehamilan adalah kondisi saat kadar hemoglobin dalam darah ibu hamil berada di bawah normal akibat kekurangan zat besi, folat, atau vitamin B12. Gejalanya termasuk lemas, pucat, sesak napas, dan detak jantung cepat. Jika tidak ditangani, dapat menyebabkan komplikasi seperti persalinan prematur atau berat bayi lahir rendah.'),
@@ -405,11 +405,11 @@ NSERT INTO penyakit (kode, nama_penyakit, deskripsi) VALUES
 ('P10', 'Abortus Inkomplit','Abortus inkomplit adalah kondisi keguguran di mana sebagian jaringan kehamilan masih tertinggal di dalam rahim. Gejalanya meliputi perdarahan terus-menerus dan nyeri perut. Biasanya memerlukan tindakan kuretase untuk membersihkan rahim secara menyeluruh.');
 ```
 
-## Insert Aturan Bedasarkan Gejala Per Trimester
+## 🔍 Insert Aturan Bedasarkan Gejala Per Trimester
 - Insert aturan (rules) for forward chaining
+```sql
 - Trimester 1 
 - Hiperemesis Gravidarum (T1)
-```sql
 INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
 (1, 4, 30),
 (1, 4, 31),
