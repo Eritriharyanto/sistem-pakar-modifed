@@ -145,7 +145,7 @@ INSERT INTO penyakit (kode, nama_penyakit, deskripsi) VALUES
 
 
 -- Insert aturan (rules) for forward chaining
--- T1 
+-- Trimester 1 
 -- Hiperemesis Gravidarum (T1)
 INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
 (1, 4, 30),
@@ -171,7 +171,7 @@ INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
 (1, 5, 65);
 
 
--- T2
+-- Trimester 2
 -- Preeklampsia (T2)
 INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
 (2, 2, 41),
@@ -198,7 +198,7 @@ INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
 (2, 7, 62);
 
 
--- T3
+-- Trimester 3
 -- Plasenta Previa (T3)
 INSERT INTO aturan (id_trimester, id_penyakit, id_gejala) VALUES
 (3, 3, 11),
